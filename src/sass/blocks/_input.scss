@@ -1,0 +1,23 @@
+.input {
+  padding: 10px 15px;
+
+  border: 4px solid $white;
+  border-radius: 6px;
+
+  color: $white;
+  background-color: transparent;
+  transition: 0.4s ease;
+
+  &:hover {
+    box-shadow: 0 0 15px $primary;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 15px $primary;
+  }
+}
+
+.input::placeholder {
+  color: $white;
+}

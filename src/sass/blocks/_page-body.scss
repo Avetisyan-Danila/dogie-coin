@@ -1,0 +1,21 @@
+.page-body {
+  padding-top: 115px;
+  overflow-x: hidden;
+
+  font-family: "Montserrat", "Arial", sans-serif;
+  color: $white;
+  background-color: $page-bg;
+
+  @media (max-width: $sm) {
+    padding-top: 105px;
+  }
+
+  @media (max-width: $xs) {
+    padding-top: 90px;
+  }
+}
+
+.page-body.lock {
+  overflow: hidden;
+  position: relative;
+}
