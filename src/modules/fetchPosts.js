@@ -12,8 +12,7 @@ const loadMorePosts = async () => {
     if (isloading) return;
 
     isloading = true;
-    loadMoreButton.style.opacity = 0.5;
-    loadMoreButton.style.pointerEvents = 'none';
+    loadMoreButton.classList.add('button--disabled');
 
     const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
         params: {
@@ -26,8 +25,7 @@ const loadMorePosts = async () => {
     posts.forEach((post) => createPostCard(post));
 
     isloading = false;
-    loadMoreButton.style.opacity = 1;
-    loadMoreButton.style.pointerEvents = 'auto';
+    loadMoreButton.classList.remove('button--disabled');
 
     if (page === totalPages) {
         fadeOut(loadMoreButton);
