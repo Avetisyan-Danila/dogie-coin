@@ -26,10 +26,8 @@ Array.from(document.forms).forEach((form) => {
         if (isValid) {
             fadeOut(errorMessage);
             location.reload();
-        } else {
-            if (errorMessage.style.display !== 'block') {
-                fadeIn(errorMessage);
-            }
+        } else if (errorMessage.style.display !== 'block') {
+            fadeIn(errorMessage);
         }
     });
 });
