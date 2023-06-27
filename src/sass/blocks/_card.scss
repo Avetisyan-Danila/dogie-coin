@@ -32,32 +32,37 @@
 }
 
 .card__title {
-  margin: 0;
+  h3 {
+    margin: 0;
 
-  font-family: 'Mulish', 'Arial', sans-serif;
-  color: $black;
-  font-size: 14px;
-  line-height: 26px;
-  text-transform: uppercase;
+    font-family: 'Mulish', 'Arial', sans-serif;
+    color: $black;
+    font-size: 14px;
+    line-height: 26px;
+    text-transform: uppercase;
+  }
 }
 
 .card__subtitle {
-  margin: 0;
+  p {
+    margin: 0;
 
-  color: $black;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+    color: $black;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .card__text {
-  margin: 0;
+  p {
+    margin: 0;
 
-  color: $gray;
+    color: $gray;
 
-  @media (max-width: $lg) {
-    font-size: 14px;
-    line-height: 24px;
+    @media (max-width: $lg) {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 }
 
@@ -70,6 +75,14 @@
 }
 
 .card__author {
+  display: inline;
+
+  p {
+    display: inline;
+  }
+}
+
+.card__publication-date {
   display: inline;
 }
 

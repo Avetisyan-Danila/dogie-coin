@@ -5,54 +5,39 @@ import { cardDateText } from "./cardDateText";
 const cardsWrapper = document.querySelector('.cards__wrapper');
 
 export const createPostCard = (post) => {
-    const card = document.createElement('article');
-    card.classList.add('card');
+    const card =
+    `<article class="card">
+        <picture>
+            <source type="image/webp" srcset="assets/5d3bc898e642f116234c.webp 1x, assets/751b10174e9c9881c8cc.webp 2x">
+            <img class="card__img" src="assets/224211a6b261da4f43b5.jpg" srcset="assets/fa57f7e5166a9d6c1dc1.jpg 2x" 
+                alt="Тема поста: 'Как повысить свою продуктивность с помощью Dogecoin'">
+        </picture>
+        <div class="card__content">
+            <header class="card__header">
+                <div class="card__title">
+                    <h3>
+                        ${post.title}
+                    </h3>
+                </div>
+            </header>
+            <div class="card__text">
+                <p>
+                    ${cardNormalizeText(post.body)}
+                </p>
+            </div>
+            <footer class="card__footer">
+                <div class="card__author">
+                    <p>Автор <b>USER-${post.id}</b>, </p>
+                </div>
+                <div class="card__publication-date">
+                    <time dateTime="${moment().format("YYYY-MM-DD")}">
+                        ${cardDateText(moment().format('DD MMMM YYYY'))}
+                    </time>
+                </div>
+                <a class="card__button button button--black" href="#">Продолжить читать</a>
+            </footer>
+        </div>
+    </article>`;
 
-    const cardImg = document.createElement('img');
-    cardImg.classList.add('card__img');
-    cardImg.src = 'https://wallpapers.com/images/file/astronaut-doge-meme-ysh8psu98frsd3yt.jpg';
-    cardImg.alt = `Тема поста: '${post.title}'`;
-
-    card.append(cardImg);
-
-    const cardContent = document.createElement('div');
-    cardContent.classList.add('card__content');
-
-    const cardHeader = document.createElement('header');
-    cardHeader.classList.add('card__header');
-
-    const cardTitle = document.createElement('h3');
-    cardTitle.classList.add('card__title');
-    cardTitle.textContent = post.title;
-
-    cardHeader.append(cardTitle);
-    cardContent.append(cardHeader);
-
-    const cardText = document.createElement('p');
-    cardText.classList.add('card__text');
-    cardText.textContent = cardNormalizeText(post.body);
-    cardContent.append(cardText);
-
-    const cardFooter = document.createElement('footer');
-    cardFooter.classList.add('card__footer');
-
-    const cardAuthor = document.createElement('p');
-    cardAuthor.classList.add('card__author');
-    cardAuthor.innerHTML = `Автор <b>USER-${post.id}</b>, `;
-
-    const cardDate = document.createElement('time');
-    cardDate.classList.add('card__publication-date');
-    cardDate.dateTime = moment().format("YYYY-MM-DD");
-    cardDate.textContent = cardDateText(moment().format('DD MMMM YYYY'));
-
-    const cardButton = document.createElement('a');
-    cardButton.classList.add('card__button', 'button', 'button--black');
-    cardButton.href = '#';
-    cardButton.innerHTML = '<span>Продолжить читать</span>';
-
-    cardFooter.append(cardAuthor, cardDate, cardButton);
-    cardContent.append(cardFooter);
-
-    card.append(cardContent);
-    cardsWrapper.append(card);
+    cardsWrapper.insertAdjacentHTML('beforeend', card);
 }
